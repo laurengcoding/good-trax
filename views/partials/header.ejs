@@ -10,6 +10,13 @@
     <nav>
         <a href="/">Home</a>
         <a href="/music">All Music</a>
+        <% if (user) { %>
+            <a href="/albums/new"	<%- title === 'Add Albums' ? 'class="active"' : '' %>>
+                ADD ALBUMS</a>
+            <a href="/logout">LOG OUT</a>
+          <% } else { %>
+            <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
+          <% } %>
     </nav>
 
     <main>
