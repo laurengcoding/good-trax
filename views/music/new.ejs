@@ -1,12 +1,14 @@
 <%- include('../partials/header') %>
 
-<form id="add-album-form" action="/music" method="POST">
+<form id="add-album-form" action="/music" enctype="multipart/form-data" method="POST">
     <label>Artist:</label>
     <input type="text" name="artist">
     <label>Album:</label>
     <input type="text" name="album">
-    <label>Album Release Date:</label>
-    <input type="date" name="album[releaseYear]">
+    <label>Release Date:</label>
+    <input type="date" name="releaseDate">
+    <label>Image:</label>
+    <input type="file" name="image">
     <input type="submit" value="Add Album">
 </form>
 

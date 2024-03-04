@@ -6,9 +6,17 @@ const musicSchema = new Schema({
         type: String
     },
     album: {
-        type: String,
-        releaseDate: Date,
+        type: String
     },
+    releaseDate: {
+        type: Date
+    },
+    image: {
+        type: String
+    },
+    cloudinary_id: {
+        type: String
+    }
     // TODO: reviews: [reviewsSchema]
     // TODO: add to list??
 
