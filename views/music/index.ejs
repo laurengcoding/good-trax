@@ -1,13 +1,24 @@
 <%- include('../partials/header') %>
 
-<h2>Home Page</h2>
+
 <!-- TODO: create logo img and add here -->
 
-<form id="search-form" action="/music" method="GET">
+<form id="search-form" action="/music" method="POST">
     <label>Search by artist or album</label>
-    <input type="text" name="music">
+    <input type="text" name="artist">
     <!-- TODO: add functionality to ignore whitespace/character casing... see RegEx -->
     <input type="submit" value="Search">
 </form>
+
+<article>
+    <% music.forEach(function(m) { %>
+        <p><%= m.artist %></p>
+        <p><%= m.album %></p>
+        <p><%= m.releaseDate.month %> / <%= m.releaseDate.year %> </p>
+        <a href="/music/<%= m._id %>">Details</a>
+    <% }); %>
+    <!-- TODO: figure out why this isn't working -->
+    </article>
+
 
 <%- include('../partials/footer') %>

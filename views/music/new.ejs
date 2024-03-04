@@ -2,11 +2,24 @@
 
 <form id="add-album-form" action="/music" enctype="multipart/form-data" method="POST">
     <label>Artist:</label>
-    <input type="text" name="artist">
+    <input type="text" name="artist" required>
     <label>Album:</label>
-    <input type="text" name="album">
-    <label>Release Date:</label>
-    <input type="date" name="releaseDate">
+    <input type="text" name="album" required>
+    <label>Release Month and Year:</label>
+    <select id="month" name="releaseDate.month">
+        <option value="1">January</option>
+        <option value="2">February</option>
+        <option value="3">March</option>
+        <option value="4">April</option>
+        <option value="5">May</option>
+        <option value="6">June</option>
+        <option value="7">July</option>
+        <option value="8">August</option>
+        <option value="9">September</option>
+        <option value="10">October</option>
+        <option value="11">November</option>
+        <option value="12">December</option>
+    <input type="text" pattern="\d{4}" name="releaseDate.year" placeholder="e.g. 2024" required>
     <label>Image:</label>
     <input type="file" name="image">
     <input type="submit" value="Add Album">

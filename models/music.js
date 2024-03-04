@@ -9,7 +9,10 @@ const musicSchema = new Schema({
         type: String
     },
     releaseDate: {
-        type: Date
+        month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+        year: {
+            type: Number
+        }
     },
     image: {
         type: String

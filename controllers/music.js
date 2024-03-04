@@ -10,7 +10,7 @@ module.exports = {
 
 async function index(req, res) {
     const music = await Music.find({});
-    res.render('music/index', music);
+    res.render('music/index', { music });
     // TODO: this might need to be a redirect
 };
 
@@ -35,7 +35,7 @@ async function create(req, res) {
         });
         await music.save();
         res.redirect('/music/' + music._id );
-    } catch {
+    } catch (err) {
         console.log(err);
         res.render('music/new', { errorMsg: err.message });
     }
