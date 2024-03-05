@@ -27,8 +27,8 @@
         - when clicked, button displays alert e.g. "added to your list!"
         - when clicked, data from this section is added to list page -->
 </section>
-
-<section id="reviews-section">
+<% if (user) { %>
+<section id="add-review-section">
     <h1>Reviews</h1>
     <form id="add-review-form" method="POST" action="/music/<%= music._id %>/reviews">
         <label>Review:</label>
@@ -44,6 +44,23 @@
         <input type="submit" id="Add Review">
     </form>
 </section>
+<% }; %>
+
+<!-- <% if (music.reviews.length) { %> -->
+    <% music.reviews.forEach(function (r) { %>
+<section id="show-review-section">
+    <h2>User</h2>
+    <div class="review-user">
+        <img src="<%= r.userAvatar %>" referrerpolicy="no-referrer" alt="avatar">
+        <p><%= r.userName %></p>
+    </div>
+    <h2>Review</h2>
+    <p><%= r.content %></p>
+    <h2>Rating</h2>
+    <p><%= r.rating %></p>
+</section>
+<% }); %>
+<!-- <% }; %> -->
 
 
 

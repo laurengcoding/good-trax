@@ -17,7 +17,7 @@ const reviewSchema = new Schema({
         ref: 'User',
         required: true
     },
-    username: String,
+    userName: String,
     userAvatar: String
 });
 
@@ -34,17 +34,15 @@ const musicSchema = new Schema({
             type: Number
         }
     },
+    reviews: [reviewSchema],
     image: {
         type: String
     },
     cloudinary_id: {
         type: String
-    },
-    reviews: [reviewSchema],
+    }
 
     // TODO: add to list??
-
-
 });
 
 module.exports = mongoose.model('Music', musicSchema);
