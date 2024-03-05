@@ -1,6 +1,26 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const reviewSchema = new Schema({
+    content: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: Number, //TODO: change this to an emoji disk rating system?
+        min: 1,
+        max: 5,
+        default: 5
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
+    username: String,
+    userAvatar: String
+});
+
 const musicSchema = new Schema({
     artist: { 
         type: String
@@ -19,14 +39,13 @@ const musicSchema = new Schema({
     },
     cloudinary_id: {
         type: String
-    }
-    // TODO: reviews: [reviewsSchema]
+    },
+    reviews: [reviewSchema],
+
     // TODO: add to list??
 
 
 });
-
-
 
 module.exports = mongoose.model('Music', musicSchema);
 

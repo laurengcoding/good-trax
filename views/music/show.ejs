@@ -1,10 +1,6 @@
 <%- include('../partials/header') %>
 
 <section id="show-page">
-    <!-- TODO: if statement...
-    if album or artist has been logged by a user, 
-    display this list
-    -->
     <div>
         <h2>Artist: </h2>
         <p><%= music.artist %></p>
@@ -20,11 +16,35 @@
     <div>
         <img src="<%= music.image %>" alt="Album Artwork">
     </div>
-    <!-- else, render a form and message which allows user to add that artist/album
-    e.g. "It looks like you're the first person to view this album... click here to add it" 
-    THIS MIGHT BE WRITTEN IN THE FUNCTION WITH A TRY AND CATCH-->
-
-
+    
+    <button>Add Review</button>
+    <!-- TODO: 
+        - button only displays if user is logged in
+        - button toggles reviews display (might need to use a script tag in here and addEventListener) -->
+    <button>Add To List</button>
+    <!-- TODO:
+        - button only displays if user is logged in
+        - when clicked, button displays alert e.g. "added to your list!"
+        - when clicked, data from this section is added to list page -->
 </section>
+
+<section id="reviews-section">
+    <h1>Reviews</h1>
+    <form id="add-review-form" method="POST" action="/music/<%= music._id %>/reviews">
+        <label>Review:</label>
+        <textarea name="content"></textarea>
+        <label>Rating:</label>
+        <select name="rating">
+            <option value="1">💿</option>
+            <option value="2">💿💿</option>
+            <option value="3">💿💿💿</option>
+            <option value="4">💿💿💿💿</option>
+            <option value="5" selected>💿💿💿💿💿</option>
+        </select>
+        <input type="submit" id="Add Review">
+    </form>
+</section>
+
+
 
 <%- include('../partials/footer') %>
