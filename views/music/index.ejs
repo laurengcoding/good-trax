@@ -11,16 +11,24 @@
         <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
-<% music.forEach(function(m) { %>
-    <div class="card" style="width: 18rem;">
-        <img src="<%= m.image %>" alt="Album Artwork">
-        <div class="card-body">
-            <h5 class="card-title"><%= m.album %></h5>
-            <h6 class="card-subtitle mb-2 text-body-secondary"><%= m.artist %></h6>
-            <p class="card-text"><%= m.releaseDate.month %> / <%= m.releaseDate.year %></p>
-            <a href="/music/<%= m._id %>" class="btn btn-primary">Details</a>
-        </div>
+<h2>Recently added: </h2>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <% music.forEach(function(m) { %>
+            <div class="col">
+                <div class="card h-100" style="width: 18rem;">
+                    <img src="<%= m.image %>" alt="Album Artwork">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= m.album %></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary"><%= m.artist %></h6>
+                        <p class="card-text"><%= m.releaseDate.month %> / <%= m.releaseDate.year %></p>
+                        <a href="/music/<%= m._id %>" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
     </div>
-<% }); %>
+</div>
 
 <%- include('../partials/footer') %>
