@@ -1,28 +1,24 @@
 <%- include('../partials/header') %>
 
-
-<section id="show-page">
-    <div>
-        <h2>Artist: </h2>
-        <p><%= music.artist %></p>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-5">
+        <img src="<%= music.image %>" class="img-fluid rounded-start" alt="Album Artwork">
+      </div>
+      <div class="col-md-7">
+        <div class="card-body">
+          <h5 class="card-title"><%= music.album %></h5>
+          <p class="card-text"><%= music.artist %></p>
+          <p class="card-text"><small class="text-body-secondary"><%= music.releaseDate.month %> / <%= music.releaseDate.year %></small></p>
+        </div>
+      </div>
     </div>
-    <div>
-        <h2>Album: </h2>
-        <p><%= music.album %></p>
-    </div>
-    <div>
-        <h2>Release Date: </h2>
-        <p><%= music.releaseDate.month %> / <%= music.releaseDate.year %></p>
-    </div>
-    <div>
-        <img src="<%= music.image %>" alt="Album Artwork">
-    </div>
+  </div>
     
     <button>Add Review</button>
    
     <button>Add To List</button>
 
-</section>
 <% if (user) { %>
 <section id="add-review-section">
     <h1>Reviews</h1>
