@@ -1,5 +1,6 @@
 <%- include('../partials/header') %>
 
+
 <section id="show-page">
     <div>
         <h2>Artist: </h2>
@@ -18,14 +19,9 @@
     </div>
     
     <button>Add Review</button>
-    <!-- TODO: 
-        - button only displays if user is logged in
-        - button toggles reviews display (might need to use a script tag in here and addEventListener) -->
+   
     <button>Add To List</button>
-    <!-- TODO:
-        - button only displays if user is logged in
-        - when clicked, button displays alert e.g. "added to your list!"
-        - when clicked, data from this section is added to list page -->
+
 </section>
 <% if (user) { %>
 <section id="add-review-section">
@@ -47,7 +43,7 @@
 <% }; %>
 
 <!-- <% if (music.reviews.length) { %> -->
-    <% music.reviews.forEach(function (r) { %>
+ <% music.reviews.forEach(function (r) { %>
 <section id="show-review-section">
     <h2>User</h2>
     <div class="review-user">

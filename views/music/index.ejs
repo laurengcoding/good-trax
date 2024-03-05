@@ -4,21 +4,23 @@
 <!-- TODO: create logo img and add here -->
 
 <form id="search-form" action="/music" method="POST">
-    <label>Search by artist or album</label>
-    <input type="text" name="artist">
-    <!-- TODO: add functionality to ignore whitespace/character casing... see RegEx -->
-    <input type="submit" value="Search">
+    <div class="mb-3">
+        <label class="form-label">Search by artist or album</label>
+        <input type="text" class="form-control" name="artist">
+    </div>
+        <button type="submit" class="btn btn-primary">Search</button>
 </form>
 
-<article>
-    <% music.forEach(function(m) { %>
-        <p><%= m.artist %></p>
-        <p><%= m.album %></p>
-        <p><%= m.releaseDate.month %> / <%= m.releaseDate.year %> </p>
-        <a href="/music/<%= m._id %>">Details</a>
-    <% }); %>
-    <!-- TODO: figure out why this isn't working -->
-    </article>
-
+<% music.forEach(function(m) { %>
+    <div class="card" style="width: 18rem;">
+        <img src="<%= m.image %>" alt="Album Artwork">
+        <div class="card-body">
+            <h5 class="card-title"><%= m.album %></h5>
+            <h6 class="card-subtitle mb-2 text-body-secondary"><%= m.artist %></h6>
+            <p class="card-text"><%= m.releaseDate.month %> / <%= m.releaseDate.year %></p>
+            <a href="/music/<%= m._id %>" class="btn btn-primary">Details</a>
+        </div>
+    </div>
+<% }); %>
 
 <%- include('../partials/footer') %>
