@@ -1,3 +1,4 @@
+const music = require('../models/music');
 const Music = require('../models/music');
 const cloudinary = require('../utilities/cloudinary');
 
@@ -24,12 +25,26 @@ function newAlbum(req, res) {
 };
 
 async function create(req, res) {
+    const artist = await Music.findOne({$or:[
+        {artist: req.body.artist},
+        {album: req.body.artist}
+]});
+if (artist) {
+    res.redirect('/music/' + artist._id);
+    return;
+};
     try {
         const result = await cloudinary.uploader.upload(req.file.path);
         console.log(result);
         // const music = await Music.create(req.body);
         const music = new Music({
             ...req.body,
+            // checkIfNew: function(req, res) {
+            //     for (let i = 0; i < music.length; i++)
+            //     if (req.body._id) {
+            //         res.redirect('/music/ + music._id');
+            //    } else return;
+            // },
             image: result.secure_url,
             cloudinary_id: result.public_id
         });

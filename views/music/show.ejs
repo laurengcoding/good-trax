@@ -11,16 +11,14 @@
           <p class="card-text"><%= music.artist %></p>
           <p class="card-text"><small class="text-body-secondary"><%= music.releaseDate.month %> / <%= music.releaseDate.year %></small></p>
         </div>
+        <div class=" card-footer text-center">
         <% if (user) { %>
-        <div class="card-footer text-center">
           <a href="/music/<%= music._id %>" class="btn btn-primary">Add Review</a>
           <a href="#" class="btn btn-secondary">Add to List</a>
-        </div>
         <% } else { %>
-          <div class="card-footer text-center">
           <a href="/auth/google" class="btn btn-primary">Login to Add a Review</a>
-          </div>
-        <% }; %>
+          <% }; %>
+        </div>
       </div>
     </div>
   </div>

@@ -10,10 +10,10 @@
 
 <div class="container pt-5">
     <h2 class="fs-6">Recently added:</h2>
-    <div class="row row-cols-1 row-cols-md-2 g-4">
+    <div class="row row-cols-3 row-cols-md-4 g-7">
         <% music.forEach(function(m) { %>
             <div class="col">
-                <div class="card h-100" style="width: 14rem;">
+                <div class="card h-100" style="max-width: 14rem;">
                     <img src="<%= m.image %>" alt="Album Artwork">
                     <div class="card-body">
                         <h5 class="card-title"><%= m.album %></h5>
