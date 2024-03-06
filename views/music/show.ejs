@@ -11,49 +11,76 @@
           <p class="card-text"><%= music.artist %></p>
           <p class="card-text"><small class="text-body-secondary"><%= music.releaseDate.month %> / <%= music.releaseDate.year %></small></p>
         </div>
+        <% if (user) { %>
+        <div class="card-footer text-center">
+          <a href="/music/<%= music._id %>" class="btn btn-primary">Add Review</a>
+          <a href="#" class="btn btn-secondary">Add to List</a>
+        </div>
+        <% } else { %>
+          <div class="card-footer text-center">
+          <a href="/auth/google" class="btn btn-primary">Login to Add a Review</a>
+          </div>
+        <% }; %>
       </div>
     </div>
   </div>
-    
-    <button>Add Review</button>
-   
-    <button>Add To List</button>
 
 <% if (user) { %>
-<section id="add-review-section">
-    <h1>Reviews</h1>
-    <form id="add-review-form" method="POST" action="/music/<%= music._id %>/reviews">
-        <label>Review:</label>
-        <textarea name="content"></textarea>
-        <label>Rating:</label>
-        <select name="rating">
-            <option value="1">💿</option>
-            <option value="2">💿💿</option>
-            <option value="3">💿💿💿</option>
-            <option value="4">💿💿💿💿</option>
-            <option value="5" selected>💿💿💿💿💿</option>
+<h2>Add a Review:</h2>
+<form id="add-review-form" method="POST" action="/music/<%= music._id %>/reviews">
+  <div class="row mb-3">
+    <label for="review" class="col-sm-2 col-form-label">Review:</label>
+    <div class="col-sm-10">
+      <textarea class="form-control" id="review" name="content"></textarea>
+    </div>
+  </div>
+  <div class="row mb-3">
+      <label for="faveTrack" class="col-sm-2 col-form-label">Favourite track:</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="faveTrack" name="faveTrack" required>
+      </div>
+  </div>
+  <div class="row mb-3">
+      <label class="col-sm-2 col-form-label">Rating:</label>
+      <div class="col-sm-10">
+        <select class="form-select" name="rating">
+          <option value="1">💿</option>
+          <option value="2">💿💿</option>
+          <option value="3">💿💿💿</option>
+          <option value="4">💿💿💿💿</option>
+          <option value="5" selected>💿💿💿💿💿</option>
         </select>
-        <input type="submit" id="Add Review">
-    </form>
-</section>
+      </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Add review</button>
+</form>
 <% }; %>
 
-<!-- <% if (music.reviews.length) { %> -->
- <% music.reviews.forEach(function (r) { %>
-<section id="show-review-section">
-    <h2>User</h2>
-    <div class="review-user">
-        <img src="<%= r.userAvatar %>" referrerpolicy="no-referrer" alt="avatar">
-        <p><%= r.userName %></p>
-    </div>
-    <h2>Review</h2>
-    <p><%= r.content %></p>
-    <h2>Rating</h2>
-    <p><%= r.rating %></p>
-</section>
-<% }); %>
-<!-- <% }; %> -->
 
 
+<% if (music.reviews.length) { %>
+  <h2>Reviews</h2>
+  <table class="table align-middle">
+    <thead>
+      <tr>
+        <th scope="col">User</th>
+        <th scope="col">Review</th>
+        <th scope="col">Favourite track</th>
+        <th scope="col">Rating</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <% music.reviews.forEach(function (r) { %>
+        <tr>
+          <td class="review-user"><img src="<%= r.userAvatar %>" class="img-thumbnail" referrerpolicy="no-referrer" alt="avatar" width="70"></td>
+          <td><%= r.content %></td>
+          <td><%= r.faveTrack %></td>
+          <td><%= r.rating %></td>
+     <% }); %>
+     <% } else { %>
+      <h5>No Reviews Yet</h5>
+      <% } %>
+    </tbody>
+  </table>
 
 <%- include('../partials/footer') %>

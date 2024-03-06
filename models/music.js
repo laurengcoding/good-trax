@@ -18,7 +18,11 @@ const reviewSchema = new Schema({
         required: true
     },
     userName: String,
-    userAvatar: String
+    userAvatar: String,
+    faveTrack: {
+        type: String,
+        required: true
+    },
 });
 
 const musicSchema = new Schema({
