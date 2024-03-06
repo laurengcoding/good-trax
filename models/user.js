@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
- const Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
  const userSchema = new Schema({
    name: String,
@@ -10,7 +10,16 @@ const mongoose = require('mongoose');
    email: String,
    avatar: String
  }, {
+  profile: {
+    collections: [{ //TODO: title: string
+    }],
+    myReviews: [],
+  },
+ },
+ {
    timestamps: true
  });
+
+
 
  module.exports = mongoose.model('User', userSchema);

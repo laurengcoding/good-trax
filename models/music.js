@@ -47,6 +47,8 @@ const musicSchema = new Schema({
     }
 
     // TODO: add to list??
+}, {
+    timestamps: true
 });
 
 module.exports = mongoose.model('Music', musicSchema);

@@ -12,7 +12,6 @@ module.exports = {
 async function index(req, res) {
     const music = await Music.find({});
     res.render('music/index', { music });
-    // TODO: this might need to be a redirect
 };
 
 async function show(req, res) {
@@ -35,16 +34,8 @@ if (artist) {
 };
     try {
         const result = await cloudinary.uploader.upload(req.file.path);
-        console.log(result);
-        // const music = await Music.create(req.body);
         const music = new Music({
             ...req.body,
-            // checkIfNew: function(req, res) {
-            //     for (let i = 0; i < music.length; i++)
-            //     if (req.body._id) {
-            //         res.redirect('/music/ + music._id');
-            //    } else return;
-            // },
             image: result.secure_url,
             cloudinary_id: result.public_id
         });
@@ -55,4 +46,5 @@ if (artist) {
         res.render('music/new', { errorMsg: err.message });
     }
 }
+
 
