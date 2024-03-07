@@ -1,16 +1,29 @@
 <%- include('../partials/header') %>
 
 
-<div>
-    <h2>Best of 2024</h2>
-    <ul>
-        <% collection.forEach(function(c) { %>
-            <% c.albumAdded.forEach(function(m) { %>
-            <li><%= m.artist %></li>
+<div class="container-fluid">
+        <h2 class="fs-4">Best of 2024</h2>
+        <ul class="list-group">
+            <% collection.forEach(function(c) { %>
+                <% c.albumAdded.forEach(function(m) { %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <p class="m-0"><%= m.artist %></p>
+                        <p class="m-0">
+                            <a href="/music/<%= m._id %>">
+                                <%= m.album %>
+                            </a>
+                        </p>
+                        <p class="m-0"><%= m.releaseDate.month %> / <%= m.releaseDate.year %></p>
+                        <form action="/profile/<%= m._id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-secondary m-0">X</button>
+                        </form>
+                    </li>
+                <% }); %>
             <% }); %>
-        <% }); %>
-
-    </ul>
+        </ul>
+        <a href="/music" class="btn btn-primary d-flex justify-content-center">
+            <h5>Add to Collection</h5>
+        </a>
 </div>
 
 <%- include('../partials/footer') %>

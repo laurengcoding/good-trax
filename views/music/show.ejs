@@ -24,8 +24,16 @@
     </div>
   </div>
 
+<% if (!music.reviews.length) { %>
+  <div class="container-fluid d-flex justify-content-center">
+    <h5 class=" ">No reviews... yet</h5>
+  </div>
+<% }; %>
+
+<hr>
+
 <% if (user) { %>
-<h2>Add a Review:</h2>
+<h4>Add a Review:</h3>
 <form id="add-review-form" method="POST" action="/music/<%= music._id %>/reviews">
   <div class="row mb-3">
     <label for="review" class="col-sm-2 col-form-label">Review:</label>
@@ -55,7 +63,7 @@
 </form>
 <% }; %>
 
-
+<hr>
 
 <% if (music.reviews.length) { %>
   <h2>Reviews</h2>
@@ -83,10 +91,8 @@
             <% }%>
           </td>
         </tr>
-     <% }); %>
-     <% } else { %>
-      <h5>No Reviews Yet</h5>
-      <% } %>
+     <% })}; %>
+
     </tbody>
   </table>
 
