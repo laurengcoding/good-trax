@@ -20,7 +20,7 @@ Welcome to **Good Trax**! It's like *Letterboxd*, but for music. Search for a re
 ---
 
 ## Motivation
-The motivation for **Good Trax** is to create a platform for music lovers to share their opinions and discover something new. **Good Trax** is inspired by the success of *Letterboxd* and *Good Reads*, but with a focus on music. User-generated content is at the heart of **Good Trax**, with an aim to cultivate a community of music lovers.
+The motivation for **Good Trax** is to create a platform for music lovers to share their opinions and discover something new. **Good Trax** is inspired by the success of *Letterboxd* and *Goodreads*, but with a focus on music. User-generated content is at the heart of **Good Trax**, with an aim to cultivate a community of music lovers.
 
 ---
 

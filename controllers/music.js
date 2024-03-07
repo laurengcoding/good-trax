@@ -10,6 +10,8 @@ module.exports = {
 
 async function index(req, res) {
     const music = await Music.find({});
+    // sort the 'recently added' section by order of creation
+    // limiting display to the 8 most recent
     const allMusic = await Music.find().sort({ createdAt: -1 }).limit(8);
     res.render('music/index', { music: allMusic });
 };
@@ -25,6 +27,7 @@ function newAlbum(req, res) {
 
 async function create(req, res) {
     const artist = await Music.findOne({$or:[
+        // search by artist or album
         {artist: req.body.artist},
         {album: req.body.artist}
 ]});
