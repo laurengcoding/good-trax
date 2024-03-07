@@ -4,6 +4,8 @@
 
 Welcome to **Good Trax**! It's like *Letterboxd*, but for music. Search for a release, or add your own, and let everyone know what's good. You can score each release out of 5 and leave a review. Discover your next obsession with **Good Trax**.
 
+[Visit the site](https://good-trax-3e5912aabeb2.herokuapp.com/)
+
 ---
 
 ## Table of Contents
