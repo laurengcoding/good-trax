@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<div class="card mb-3" style="max-width: 540px;">
+<div class="card mb-3 mx-auto" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-5">
         <img src="<%= music.image %>" class="img-fluid rounded-start" alt="Album Artwork">
@@ -13,8 +13,7 @@
         </div>
         <div class=" card-footer text-center">
         <% if (user) { %>
-          <a href="/music/<%= music._id %>" class="btn btn-primary">Add Review</a>
-          <a href="#" class="btn btn-secondary">Add to List</a>
+          <a href="#" class="btn btn-secondary">Add to Collection</a>
         <% } else { %>
           <a href="/auth/google" class="btn btn-primary">Login to Add a Review</a>
           <% }; %>
@@ -74,6 +73,14 @@
           <td><%= r.content %></td>
           <td><%= r.faveTrack %></td>
           <td><%= r.rating %></td>
+          <td>
+            <% if (user?._id.equals(r.user)) { %>
+              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                <button type="submit" class="btn btn-secondary">X</button>
+              </form>
+            <% }%>
+          </td>
+        </tr>
      <% }); %>
      <% } else { %>
       <h5>No Reviews Yet</h5>

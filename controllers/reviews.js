@@ -1,7 +1,23 @@
 const Music = require('../models/music');
 
 module.exports = {
-    create
+    create,
+    delete: deleteReview
+};
+
+function deleteReview(req, res, next) {
+    Music.findOne({
+        'reviews._id': req.params.id,
+        'reviews.user': req.user._id
+    }).then(function(music) {
+        if (!music) return res.redirect('/music');
+        music.reviews.remove(req.params.id);
+        music.save().then(function() {
+            res.redirect('/music/' + music._id);
+        }).catch(function(err) {
+            return next(err);
+        });
+    });
 };
 
 async function create(req, res) {
