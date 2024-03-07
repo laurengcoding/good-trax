@@ -9,12 +9,6 @@ const Schema = mongoose.Schema;
    },
    email: String,
    avatar: String
- }, {
-  profile: {
-    collections: [{ //TODO: title: string
-    }],
-    myReviews: [],
-  },
  },
  {
    timestamps: true

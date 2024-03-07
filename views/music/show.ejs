@@ -13,7 +13,9 @@
         </div>
         <div class=" card-footer text-center">
         <% if (user) { %>
-          <a href="#" class="btn btn-secondary">Add to Collection</a>
+          <form action="/profile/<%= music._id %>" method="POST">
+            <button type="submit" class="btn btn-primary">Add to Collection</button>
+          </form>
         <% } else { %>
           <a href="/auth/google" class="btn btn-primary">Login to Add a Review</a>
           <% }; %>

@@ -1,4 +1,3 @@
-const music = require('../models/music');
 const Music = require('../models/music');
 const cloudinary = require('../utilities/cloudinary');
 

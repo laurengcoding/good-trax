@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+
+<div>
+    <h2>Best of 2024</h2>
+    <ul>
+        <% collection.forEach(function(c) { %>
+            <% c.albumAdded.forEach(function(m) { %>
+            <li><%= m.artist %></li>
+            <% }); %>
+        <% }); %>
+
+    </ul>
+</div>
+
+<%- include('../partials/footer') %>
