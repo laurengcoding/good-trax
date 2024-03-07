@@ -7,7 +7,7 @@ const reviewSchema = new Schema({
         required: true
     },
     rating: {
-        type: Number, //TODO: change this to an emoji disk rating system?
+        type: Number,
         min: 1,
         max: 5,
         default: 5
@@ -44,9 +44,7 @@ const musicSchema = new Schema({
     },
     cloudinary_id: {
         type: String
-    }
-
-    // TODO: add to list??
+    },
 }, {
     timestamps: true
 });

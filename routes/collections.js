@@ -16,6 +16,4 @@ router.post('/profile/:id', collectionsController.addToCollection);
 // DELETE /profile/:id
 router.delete('/profile/:id', collectionsController.delete);
 
-
-
 module.exports = router;
