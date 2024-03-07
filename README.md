@@ -51,10 +51,10 @@ Home Page:
 <img src="https://github.com/laurengcoding/good-trax/blob/main/public/images/gt-landing-page.png?raw=true" alt="Good Trax Home Page">
 
 Search Page:
-<img src="https://github.com/laurengcoding/good-trax/blob/main/public/images/search-page.png?raw=true" alt="Search Page" width="500" height="auto">
+<img src="https://github.com/laurengcoding/good-trax/blob/main/public/images/search-page.png?raw=true" alt="Search Page">
 
 Release Details Page:
-<img src="https://github.com/laurengcoding/good-trax/blob/main/public/images/release-details-page.png?raw=true" alt="Release Details Page" width="200" height="200">
+<img src="https://github.com/laurengcoding/good-trax/blob/main/public/images/release-details-page.png?raw=true" alt="Release Details Page">
 
 *Mobile examples TBA*
 
