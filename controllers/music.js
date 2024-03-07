@@ -11,7 +11,8 @@ module.exports = {
 
 async function index(req, res) {
     const music = await Music.find({});
-    res.render('music/index', { music });
+    const allMusic = await Music.find().sort({ createdAt: -1 }).limit(8);
+    res.render('music/index', { music: allMusic });
 };
 
 async function show(req, res) {
